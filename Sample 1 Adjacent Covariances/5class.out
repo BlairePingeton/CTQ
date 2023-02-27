@@ -1,0 +1,2442 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+02/15/2023   6:37 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    5-component paper 2 normal mixture model
+    !LPA with covariances added within adjacent factors
+
+  DATA:
+    File is C:\Users\bpinget\Desktop\factormeans.csv;
+
+  VARIABLE:
+    NAMES ARE ID General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+    USEVARIABLES General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+    IDVARIABLE IS ID;
+    CLASSES = class (5);
+    MISSING IS General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567(-99);
+
+  ANALYSIS:
+    TYPE = MIXTURE;
+    STARTS = 10000 1000;
+    ESTIMATOR = ML;
+
+  MODEL:
+  %class#1%
+                 [General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567];
+
+                 General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+
+                 General12 WITH General3;
+                 General3 WITH General4;
+                 General4 WITH General567;
+
+                 Threat12 WITH Threat3;
+                 Threat3 WITH Threat4;
+                 Threat4 WITH Threat567;
+
+                 Cope12 WITH Cope3;
+                 Cope3 WITH Cope4;
+                 Cope4 WITH Cope567;
+
+                 FNR12 WITH FNR3;
+                 FNR3 WITH FNR4;
+                 FNR4 WITH FNR567;
+
+                 Loss12 WITH Loss3;
+                 Loss3 WITH Loss4;
+                 Loss4 WITH Loss567;
+
+                 Sleep12 WITH Sleep3;
+                 Sleep3 WITH Sleep4;
+                 Sleep4 WITH Sleep567;
+
+                 Somatic12 WITH Somatic3;
+                 Somatic3 WITH Somatic4;
+                 Somatic4 WITH Somatic567;
+
+                 PA12 WITH PA3;
+                 PA3 WITH PA4;
+                 PA4 WITH PA567;
+
+  %class#2%
+                 [General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567];
+
+                 General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+
+                 General12 WITH General3;
+                 General3 WITH General4;
+                 General4 WITH General567;
+
+                 Threat12 WITH Threat3;
+                 Threat3 WITH Threat4;
+                 Threat4 WITH Threat567;
+
+                 Cope12 WITH Cope3;
+                 Cope3 WITH Cope4;
+                 Cope4 WITH Cope567;
+
+                 FNR12 WITH FNR3;
+                 FNR3 WITH FNR4;
+                 FNR4 WITH FNR567;
+
+                 Loss12 WITH Loss3;
+                 Loss3 WITH Loss4;
+                 Loss4 WITH Loss567;
+
+                 Sleep12 WITH Sleep3;
+                 Sleep3 WITH Sleep4;
+                 Sleep4 WITH Sleep567;
+
+                 Somatic12 WITH Somatic3;
+                 Somatic3 WITH Somatic4;
+                 Somatic4 WITH Somatic567;
+
+                 PA12 WITH PA3;
+                 PA3 WITH PA4;
+                 PA4 WITH PA567;
+
+  %class#3%
+                 [General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567];
+
+                 General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+
+                 General12 WITH General3;
+                 General3 WITH General4;
+                 General4 WITH General567;
+
+                 Threat12 WITH Threat3;
+                 Threat3 WITH Threat4;
+                 Threat4 WITH Threat567;
+
+                 Cope12 WITH Cope3;
+                 Cope3 WITH Cope4;
+                 Cope4 WITH Cope567;
+
+                 FNR12 WITH FNR3;
+                 FNR3 WITH FNR4;
+                 FNR4 WITH FNR567;
+
+                 Loss12 WITH Loss3;
+                 Loss3 WITH Loss4;
+                 Loss4 WITH Loss567;
+
+                 Sleep12 WITH Sleep3;
+                 Sleep3 WITH Sleep4;
+                 Sleep4 WITH Sleep567;
+
+                 Somatic12 WITH Somatic3;
+                 Somatic3 WITH Somatic4;
+                 Somatic4 WITH Somatic567;
+
+                 PA12 WITH PA3;
+                 PA3 WITH PA4;
+                 PA4 WITH PA567;
+
+  %class#4%
+                 [General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567];
+
+                 General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+
+                 General12 WITH General3;
+                 General3 WITH General4;
+                 General4 WITH General567;
+
+                 Threat12 WITH Threat3;
+                 Threat3 WITH Threat4;
+                 Threat4 WITH Threat567;
+
+                 Cope12 WITH Cope3;
+                 Cope3 WITH Cope4;
+                 Cope4 WITH Cope567;
+
+                 FNR12 WITH FNR3;
+                 FNR3 WITH FNR4;
+                 FNR4 WITH FNR567;
+
+                 Loss12 WITH Loss3;
+                 Loss3 WITH Loss4;
+                 Loss4 WITH Loss567;
+
+                 Sleep12 WITH Sleep3;
+                 Sleep3 WITH Sleep4;
+                 Sleep4 WITH Sleep567;
+
+                 Somatic12 WITH Somatic3;
+                 Somatic3 WITH Somatic4;
+                 Somatic4 WITH Somatic567;
+
+                 PA12 WITH PA3;
+                 PA3 WITH PA4;
+                 PA4 WITH PA567;
+  %class#5%
+                 [General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567];
+
+                 General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                 General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                 General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                 General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+
+                 General12 WITH General3;
+                 General3 WITH General4;
+                 General4 WITH General567;
+
+                 Threat12 WITH Threat3;
+                 Threat3 WITH Threat4;
+                 Threat4 WITH Threat567;
+
+                 Cope12 WITH Cope3;
+                 Cope3 WITH Cope4;
+                 Cope4 WITH Cope567;
+
+                 FNR12 WITH FNR3;
+                 FNR3 WITH FNR4;
+                 FNR4 WITH FNR567;
+
+                 Loss12 WITH Loss3;
+                 Loss3 WITH Loss4;
+                 Loss4 WITH Loss567;
+
+                 Sleep12 WITH Sleep3;
+                 Sleep3 WITH Sleep4;
+                 Sleep4 WITH Sleep567;
+
+                 Somatic12 WITH Somatic3;
+                 Somatic3 WITH Somatic4;
+                 Somatic4 WITH Somatic567;
+
+                 PA12 WITH PA3;
+                 PA3 WITH PA4;
+                 PA4 WITH PA567;
+
+  OUTPUT: STDYX;
+
+  PLOT:
+        TYPE=PLOT3;
+        SERIES=
+        General12 General3 General4 General567
+        Threat12 Threat3 Threat4 Threat567
+        Cope12 Cope3 Cope4 Cope567
+        FNR12 FNR3 FNR4 FNR567
+        Loss12 Loss3 Loss4 Loss567
+        Sleep12 Sleep3 Sleep4 Sleep567
+        Somatic12 Somatic3 Somatic4 Somatic567
+        PA12 PA3 PA4 PA567(*);
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+*** WARNING in PLOT command
+  Note that only the first 8 characters of variable names are used in plots.
+  If variable names are not unique within the first 8 characters, problems
+  may occur.
+   1 ERROR(S) FOUND IN THE INPUT INSTRUCTIONS
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+5-component paper 2 normal mixture model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         617
+
+Number of dependent variables                                   32
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   GENERAL12   THREAT12    COPE12      FNR12       LOSS12      SLEEP12
+   SOMATIC12   PA12        GENERAL3    THREAT3     COPE3       FNR3
+   LOSS3       SLEEP3      SOMATIC3    PA3         GENERAL4    THREAT4
+   COPE4       FNR4        LOSS4       SLEEP4      SOMATIC4    PA4
+   GENERAL567  THREAT567   COPE567     FNR567      LOSS567     SLEEP567
+   SOMATIC567  PA567
+
+Categorical latent variables
+   CLASS
+
+Variables with special functions
+
+  ID variable           ID
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                      10000
+  Number of final stage optimizations                         1000
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  C:\Users\bpinget\Desktop\factormeans.csv
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            23
+     Number of y missing data patterns          23
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              GENERAL1      THREAT12      COPE12        FNR12         LOSS12
+              ________      ________      ________      ________      ________
+ GENERAL1       0.566
+ THREAT12       0.566         0.566
+ COPE12         0.566         0.566         0.566
+ FNR12          0.566         0.566         0.566         0.566
+ LOSS12         0.566         0.566         0.566         0.566         0.566
+ SLEEP12        0.566         0.566         0.566         0.566         0.566
+ SOMATIC1       0.566         0.566         0.566         0.566         0.566
+ PA12           0.566         0.566         0.566         0.566         0.566
+ GENERAL3       0.251         0.251         0.251         0.251         0.251
+ THREAT3        0.251         0.251         0.251         0.251         0.251
+ COPE3          0.251         0.251         0.251         0.251         0.251
+ FNR3           0.251         0.251         0.251         0.251         0.251
+ LOSS3          0.251         0.251         0.251         0.251         0.251
+ SLEEP3         0.251         0.251         0.251         0.251         0.251
+ SOMATIC3       0.251         0.251         0.251         0.251         0.251
+ PA3            0.251         0.251         0.251         0.251         0.251
+ GENERAL4       0.261         0.261         0.261         0.261         0.261
+ THREAT4        0.261         0.261         0.261         0.261         0.261
+ COPE4          0.261         0.261         0.261         0.261         0.261
+ FNR4           0.261         0.261         0.261         0.261         0.261
+ LOSS4          0.261         0.261         0.261         0.261         0.261
+ SLEEP4         0.261         0.261         0.261         0.261         0.261
+ SOMATIC4       0.261         0.261         0.261         0.261         0.261
+ PA4            0.261         0.261         0.261         0.261         0.261
+ GENERAL5       0.361         0.361         0.361         0.361         0.361
+ THREAT56       0.361         0.361         0.361         0.361         0.361
+ COPE567        0.361         0.361         0.361         0.361         0.361
+ FNR567         0.361         0.361         0.361         0.361         0.361
+ LOSS567        0.361         0.361         0.361         0.361         0.361
+ SLEEP567       0.361         0.361         0.361         0.361         0.361
+ SOMATIC5       0.310         0.310         0.310         0.310         0.310
+ PA567          0.361         0.361         0.361         0.361         0.361
+
+
+           Covariance Coverage
+              SLEEP12       SOMATIC1      PA12          GENERAL3      THREAT3
+              ________      ________      ________      ________      ________
+ SLEEP12        0.566
+ SOMATIC1       0.566         0.566
+ PA12           0.566         0.566         0.566
+ GENERAL3       0.251         0.251         0.251         0.447
+ THREAT3        0.251         0.251         0.251         0.447         0.447
+ COPE3          0.251         0.251         0.251         0.447         0.447
+ FNR3           0.251         0.251         0.251         0.447         0.447
+ LOSS3          0.251         0.251         0.251         0.447         0.447
+ SLEEP3         0.251         0.251         0.251         0.447         0.447
+ SOMATIC3       0.251         0.251         0.251         0.447         0.447
+ PA3            0.251         0.251         0.251         0.447         0.447
+ GENERAL4       0.261         0.261         0.261         0.203         0.203
+ THREAT4        0.261         0.261         0.261         0.203         0.203
+ COPE4          0.261         0.261         0.261         0.203         0.203
+ FNR4           0.261         0.261         0.261         0.203         0.203
+ LOSS4          0.261         0.261         0.261         0.203         0.203
+ SLEEP4         0.261         0.261         0.261         0.203         0.203
+ SOMATIC4       0.261         0.261         0.261         0.203         0.203
+ PA4            0.261         0.261         0.261         0.203         0.203
+ GENERAL5       0.361         0.361         0.361         0.288         0.288
+ THREAT56       0.361         0.361         0.361         0.288         0.288
+ COPE567        0.361         0.361         0.361         0.288         0.288
+ FNR567         0.361         0.361         0.361         0.288         0.288
+ LOSS567        0.361         0.361         0.361         0.288         0.288
+ SLEEP567       0.361         0.361         0.361         0.288         0.288
+ SOMATIC5       0.310         0.310         0.310         0.248         0.248
+ PA567          0.361         0.361         0.361         0.288         0.288
+
+
+           Covariance Coverage
+              COPE3         FNR3          LOSS3         SLEEP3        SOMATIC3
+              ________      ________      ________      ________      ________
+ COPE3          0.447
+ FNR3           0.447         0.447
+ LOSS3          0.447         0.447         0.447
+ SLEEP3         0.447         0.447         0.447         0.447
+ SOMATIC3       0.447         0.447         0.447         0.447         0.447
+ PA3            0.447         0.447         0.447         0.447         0.447
+ GENERAL4       0.203         0.203         0.203         0.203         0.203
+ THREAT4        0.203         0.203         0.203         0.203         0.203
+ COPE4          0.203         0.203         0.203         0.203         0.203
+ FNR4           0.203         0.203         0.203         0.203         0.203
+ LOSS4          0.203         0.203         0.203         0.203         0.203
+ SLEEP4         0.203         0.203         0.203         0.203         0.203
+ SOMATIC4       0.203         0.203         0.203         0.203         0.203
+ PA4            0.203         0.203         0.203         0.203         0.203
+ GENERAL5       0.288         0.288         0.288         0.288         0.288
+ THREAT56       0.288         0.288         0.288         0.288         0.288
+ COPE567        0.288         0.288         0.288         0.288         0.288
+ FNR567         0.288         0.288         0.288         0.288         0.288
+ LOSS567        0.288         0.288         0.288         0.288         0.288
+ SLEEP567       0.288         0.288         0.288         0.288         0.288
+ SOMATIC5       0.248         0.248         0.248         0.248         0.248
+ PA567          0.288         0.288         0.288         0.288         0.288
+
+
+           Covariance Coverage
+              PA3           GENERAL4      THREAT4       COPE4         FNR4
+              ________      ________      ________      ________      ________
+ PA3            0.447
+ GENERAL4       0.203         0.465
+ THREAT4        0.203         0.465         0.465
+ COPE4          0.203         0.465         0.465         0.465
+ FNR4           0.203         0.465         0.465         0.465         0.465
+ LOSS4          0.203         0.465         0.465         0.465         0.465
+ SLEEP4         0.203         0.465         0.465         0.465         0.465
+ SOMATIC4       0.203         0.465         0.465         0.465         0.465
+ PA4            0.203         0.465         0.465         0.465         0.465
+ GENERAL5       0.288         0.301         0.301         0.301         0.301
+ THREAT56       0.288         0.301         0.301         0.301         0.301
+ COPE567        0.288         0.301         0.301         0.301         0.301
+ FNR567         0.288         0.301         0.301         0.301         0.301
+ LOSS567        0.288         0.301         0.301         0.301         0.301
+ SLEEP567       0.288         0.301         0.301         0.301         0.301
+ SOMATIC5       0.248         0.264         0.264         0.264         0.264
+ PA567          0.288         0.301         0.301         0.301         0.301
+
+
+           Covariance Coverage
+              LOSS4         SLEEP4        SOMATIC4      PA4           GENERAL5
+              ________      ________      ________      ________      ________
+ LOSS4          0.465
+ SLEEP4         0.465         0.465
+ SOMATIC4       0.465         0.465         0.465
+ PA4            0.465         0.465         0.465         0.465
+ GENERAL5       0.301         0.301         0.301         0.301         0.687
+ THREAT56       0.301         0.301         0.301         0.301         0.687
+ COPE567        0.301         0.301         0.301         0.301         0.687
+ FNR567         0.301         0.301         0.301         0.301         0.687
+ LOSS567        0.301         0.301         0.301         0.301         0.687
+ SLEEP567       0.301         0.301         0.301         0.301         0.687
+ SOMATIC5       0.264         0.264         0.264         0.264         0.605
+ PA567          0.301         0.301         0.301         0.301         0.687
+
+
+           Covariance Coverage
+              THREAT56      COPE567       FNR567        LOSS567       SLEEP567
+              ________      ________      ________      ________      ________
+ THREAT56       0.687
+ COPE567        0.687         0.687
+ FNR567         0.687         0.687         0.687
+ LOSS567        0.687         0.687         0.687         0.687
+ SLEEP567       0.687         0.687         0.687         0.687         0.687
+ SOMATIC5       0.605         0.605         0.605         0.605         0.605
+ PA567          0.687         0.687         0.687         0.687         0.687
+
+
+           Covariance Coverage
+              SOMATIC5      PA567
+              ________      ________
+ SOMATIC5       0.605
+ PA567          0.605         0.687
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     GENERAL12             0.101       1.007      -1.460    0.29%      -0.707     -0.350     -0.152
+             349.000       0.879       0.638       3.615    0.29%       0.109      0.815
+     THREAT12             -0.016       0.237      -1.801    0.29%      -0.529     -0.188     -0.026
+             349.000       0.376       0.663       2.511    0.29%       0.111      0.480
+     COPE12                0.000      -0.397      -2.481    0.29%      -0.486     -0.159      0.035
+             349.000       0.480       0.763       1.693    0.29%       0.173      0.523
+     FNR12                -0.013      -0.015      -2.476    0.29%      -0.560     -0.150      0.008
+             349.000       0.470       0.582       2.258    0.29%       0.167      0.494
+     LOSS12               -0.009       1.021      -1.986    0.29%      -0.536     -0.281     -0.138
+             349.000       0.554       3.334       4.204    0.29%       0.072      0.492
+     SLEEP12              -0.012       0.567      -2.139    0.29%      -0.576     -0.277     -0.108
+             349.000       0.525       0.849       3.078    0.29%       0.077      0.554
+     SOMATIC12            -0.002       0.079      -2.246    0.29%      -0.699     -0.215     -0.023
+             349.000       0.549      -0.398       1.706    0.29%       0.204      0.589
+     PA12                  0.029       0.088      -1.920    0.29%      -0.424     -0.134     -0.009
+             349.000       0.321       0.501       1.966    0.29%       0.131      0.467
+     GENERAL3             -0.023       0.829      -1.362    0.36%      -0.753     -0.381     -0.190
+             276.000       0.711       0.417       3.153    0.36%       0.016      0.625
+     THREAT3               0.012      -0.160      -1.940    0.36%      -0.498     -0.128     -0.007
+             276.000       0.323       0.102       1.495    0.36%       0.173      0.478
+     COPE3                -0.002       0.168      -2.308    0.36%      -0.535     -0.122      0.022
+             276.000       0.497       1.897       3.396    0.36%       0.142      0.544
+     FNR3                  0.015      -0.114      -2.235    0.36%      -0.454     -0.089      0.011
+             276.000       0.433       0.528       1.798    0.36%       0.135      0.517
+     LOSS3                -0.028       1.491      -2.387    0.36%      -0.524     -0.228     -0.097
+             276.000       0.567       7.830       5.008    0.36%       0.052      0.417
+     SLEEP3                0.026       0.329      -1.913    0.36%      -0.626     -0.201     -0.045
+             276.000       0.564       0.130       2.084    0.36%       0.153      0.602
+     SOMATIC3              0.006       0.050      -1.815    0.36%      -0.904     -0.281     -0.002
+             276.000       0.710      -1.291       1.446    0.36%       0.241      0.893
+     PA3                  -0.015       0.373      -1.901    0.36%      -0.466     -0.181     -0.048
+             276.000       0.354       1.579       2.690    0.36%       0.092      0.442
+     GENERAL4             -0.072       0.457      -2.430    0.35%      -0.790     -0.358     -0.148
+             287.000       0.743       0.392       2.609    0.35%       0.037      0.620
+     THREAT4              -0.028       0.824      -1.618    0.35%      -0.517     -0.217     -0.095
+             287.000       0.367       2.027       2.704    0.35%       0.074      0.421
+     COPE4                 0.004      -1.890      -4.758    0.35%      -0.452     -0.045      0.050
+             287.000       0.628       9.018       1.748    0.35%       0.165      0.568
+     FNR4                  0.000       2.344      -1.895    0.35%      -0.503     -0.148     -0.050
+             287.000       0.581      13.263       5.046    0.35%       0.069      0.426
+     LOSS4                -0.009       1.646      -1.779    0.35%      -0.564     -0.266     -0.119
+             287.000       0.560       6.433       4.776    0.35%       0.014      0.537
+     SLEEP4               -0.008       1.489      -1.169    0.35%      -0.500     -0.352     -0.234
+             287.000       0.487       2.511       3.258    0.35%      -0.088      0.417
+     SOMATIC4             -0.001       1.339      -1.838    0.35%      -0.568     -0.239     -0.082
+             287.000       0.555       3.620       3.301    0.35%       0.036      0.439
+     PA4                   0.011      -0.941      -3.067    0.35%      -0.473     -0.065      0.093
+             287.000       0.459       2.412       2.094    0.35%       0.210      0.544
+     GENERAL567           -0.100       1.216      -1.312    0.24%      -0.815     -0.492     -0.280
+             424.000       0.676       1.506       3.372    0.24%      -0.106      0.474
+     THREAT567            -0.005       0.328      -2.469    0.24%      -0.441     -0.147     -0.024
+             424.000       0.395       2.225       2.835    0.24%       0.106      0.415
+     COPE567               0.012      -0.197      -2.281    0.24%      -0.536     -0.093      0.036
+             424.000       0.478       0.562       2.014    0.24%       0.153      0.534
+     FNR567                0.006       0.083      -1.973    0.24%      -0.492     -0.103      0.009
+             424.000       0.462       0.807       2.472    0.24%       0.136      0.514
+     LOSS567               0.005       0.709      -2.362    0.24%      -0.461     -0.163     -0.062
+             424.000       0.435       2.852       3.459    0.24%       0.078      0.462
+     SLEEP567              0.015       0.797      -1.755    0.24%      -0.517     -0.215     -0.084
+             424.000       0.496       1.072       2.498    0.24%       0.049      0.515
+     SOMATIC567            0.003       0.254      -1.649    0.27%      -0.794     -0.218     -0.009
+             373.000       0.640      -0.923       1.759    0.27%       0.173      0.745
+     PA567                 0.016       0.034      -1.899    0.24%      -0.436     -0.121     -0.006
+             424.000       0.351       0.628       2.023    0.24%       0.118      0.476
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Unperturbed starting value run did not converge in the initial stage
+optimizations.
+
+9681 perturbed starting value run(s) did not converge in the initial stage
+optimizations.
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -9402.162  62997            6283
+           -9554.264  665121           417
+           -9554.441  518354           5163
+           -9561.124  82255            2186
+           -9567.612  681731           7357
+           -9568.426  242319           2616
+           -9612.970  590471           2534
+           -9613.907  593978           5946
+           -9619.967  995276           8916
+           -9623.778  873111           5580
+           -9631.877  340581           5978
+           -9632.398  383636           3089
+           -9634.855  871495           4675
+           -9636.114  415228           6989
+           -9643.317  733349           7902
+           -9648.226  887580           493
+           -9648.428  776171           4943
+           -9652.262  579277           4206
+           -9652.323  344489           5139
+           -9665.318  689644           8841
+           -9672.712  538915           5521
+           -9680.117  154750           1921
+           -9686.569  791883           5817
+           -9690.762  375752           6327
+           -9702.720  532717           8922
+           -9705.291  737528           7407
+           -9719.363  802679           6469
+           -9741.799  925997           2951
+           -9746.006  60685            7238
+           -9751.298  225445           8619
+           -9757.658  109893           4391
+           -9766.143  459291           9671
+           -9770.675  53584            5162
+           -9778.464  908524           6156
+           -9785.346  164132           7661
+           -9789.244  523394           7837
+           -9791.901  231199           1641
+           -9792.150  157924           6365
+           -9792.656  114239           9816
+           -9793.855  92355            1997
+           -9803.141  364335           2289
+           -9806.787  27352            1516
+           -9809.957  232029           4120
+           -9810.622  46565            9823
+           -9812.687  476995           2783
+           -9816.369  260888           6335
+           -9816.563  443098           7495
+           -9822.341  874884           5802
+           -9822.964  255016           1731
+           -9823.151  359639           8310
+           -9824.377  605861           6976
+           -9829.840  937103           7208
+           -9831.538  627249           1518
+           -9832.652  122125           9643
+           -9833.081  298637           9641
+           -9837.173  521009           8065
+           -9837.605  911797           8396
+           -9837.836  691251           2249
+           -9838.473  791396           243
+           -9840.434  226934           4964
+           -9840.527  876407           6945
+           -9841.260  603842           61
+           -9844.364  422699           1439
+           -9844.467  589839           4722
+           -9844.705  180978           5468
+           -9845.638  628997           1188
+           -9846.295  204677           9638
+           -9846.474  114288           4123
+           -9847.678  690884           6302
+           -9848.296  173440           328
+           -9848.839  503731           6207
+           -9849.890  979087           8246
+           -9853.662  44268            9918
+           -9854.206  976247           2459
+           -9855.852  736102           5843
+           -9856.299  395914           5801
+           -9858.529  15270            610
+           -9861.709  309202           8474
+           -9863.930  297104           6462
+           -9865.419  323233           5600
+           -9867.204  784282           2479
+           -9867.449  287787           1630
+           -9868.943  47366            8912
+           -9869.399  682315           8387
+           -9871.400  917570           1168
+           -9872.130  892896           2177
+           -9873.759  907224           2950
+           -9875.104  845466           3157
+           -9876.471  88015            8978
+           -9876.972  864727           7377
+           -9878.764  576917           9879
+           -9878.815  251641           784
+           -9878.977  215767           7440
+           -9879.252  496703           758
+           -9879.636  69487            3163
+           -9879.918  875746           7074
+           -9880.911  238148           9092
+           -9881.337  220461           4370
+           -9881.464  785068           3000
+           -9882.748  291644           7251
+           -9883.358  828982           4180
+           -9884.672  874211           4171
+           -9885.227  385059           7607
+           -9885.284  401245           1929
+           -9885.932  285627           4839
+           -9886.852  52667            4407
+           -9887.983  222603           4823
+           -9888.944  718141           5880
+           -9889.468  188678           4220
+           -9889.712  926518           4506
+           -9889.920  514266           3692
+           -9889.992  633073           3871
+           -9890.025  357229           9228
+           -9891.026  961762           7324
+           -9891.472  104836           2659
+           -9891.590  747816           9287
+           -9891.696  666752           1820
+           -9892.280  211879           3922
+           -9892.947  948974           3197
+           -9893.879  886496           4680
+           -9894.028  37570            3925
+           -9894.977  376289           1798
+           -9895.016  875688           9526
+           -9895.966  614764           4637
+           -9896.191  753644           2437
+           -9896.539  24379            3944
+           -9898.039  761633           50
+           -9898.108  810705           626
+           -9898.311  891605           3611
+           -9898.829  355674           540
+           -9899.566  347879           6965
+           -9900.065  440948           9391
+           -9900.065  620592           7717
+           -9900.065  607263           1121
+           -9900.065  177230           9547
+           -9900.065  787994           4275
+           -9900.065  845579           8421
+           -9900.865  875907           5433
+           -9901.020  252188           6211
+           -9901.297  169942           8098
+           -9901.564  362530           4096
+           -9901.846  562863           8184
+           -9901.860  105310           4446
+           -9902.308  266340           683
+           -9903.970  90504            3842
+           -9904.015  4053             7365
+           -9904.512  180370           1652
+           -9907.136  408333           8780
+           -9907.696  336683           5932
+           -9908.317  877707           2564
+           -9908.361  124535           6085
+           -9908.813  334572           6707
+           -9910.404  507303           3272
+           -9911.178  111652           6755
+           -9911.306  147165           3806
+           -9911.306  831417           3095
+           -9911.306  716392           6155
+           -9911.593  654133           4892
+           -9912.284  641273           7155
+           -9913.528  276270           6994
+           -9915.614  249543           6977
+           -9917.622  326976           7787
+           -9917.869  254676           5682
+           -9921.467  908674           1748
+           -9923.030  984012           6912
+           -9924.218  767015           9023
+           -9927.565  720204           2406
+           -9928.365  206646           2156
+           -9928.977  694303           282
+           -9930.658  928085           1946
+           -9932.729  625189           3102
+           -9933.963  78429            9885
+           -9934.089  22518            1680
+           -9939.297  346141           1533
+           -9942.030  260808           5151
+           -9942.142  152789           4911
+           -9944.947  261147           9664
+           -9946.362  138973           5461
+           -9946.362  926098           7332
+           -9947.093  725610           8761
+           -9947.093  345541           5269
+           -9948.399  974542           8854
+           -9949.214  244384           4195
+           -9949.714  365050           1835
+           -9950.364  365620           1457
+           -9951.575  901947           6194
+           -9952.197  548625           7854
+           -9952.763  518561           1856
+           -9952.926  800741           9727
+           -9954.721  763802           4958
+           -9955.146  19918            7435
+           -9956.182  143759           5185
+           -9964.854  840021           6324
+           -9972.533  396089           9881
+           -9972.544  124781           6796
+           -9972.884  282829           7163
+           -9974.388  862126           5811
+           -9974.880  908912           3768
+           -9974.929  313038           4694
+           -9976.030  777244           2852
+           -9976.030  370957           554
+           -9979.639  345726           461
+           -9982.223  810560           1213
+           -9986.470  607209           6961
+           -9988.882  525405           9764
+           -9994.308  512316           2238
+           -9999.408  745249           3082
+          -10007.613  181089           1177
+          -10019.276  180654           3150
+          -10047.751  997222           229
+          -10059.699  419858           1617
+          -10060.364  842985           8673
+          -10064.874  451523           7510
+          -10069.680  978061           488
+          -10070.314  356951           2178
+          -10071.835  806409           2747
+          -10075.019  611668           3776
+          -10075.531  52606            5431
+          -10082.507  617658           660
+          -10104.720  781349           1079
+          -10121.582  204959           695
+          -10154.842  739214           807
+          -10161.859  802978           7169
+          -10167.728  540841           3564
+          -10221.651  118183           2841
+          -10239.431  351092           6628
+          -10260.196  778451           6169
+          -10311.581  651813           5382
+          -10357.090  785023           3454
+          -10357.644  691818           2770
+          -10364.620  569836           6993
+          -10364.620  974762           2360
+          -10397.653  609367           4562
+
+767 perturbed starting value run(s) did not converge.
+
+
+
+     WARNING:  THE BEST LOGLIKELIHOOD VALUE WAS NOT REPLICATED.  THE
+     SOLUTION MAY NOT BE TRUSTWORTHY DUE TO LOCAL MAXIMA.  INCREASE THE
+     NUMBER OF RANDOM STARTS.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      444
+
+Loglikelihood
+
+          H0 Value                       -9402.162
+
+Information Criteria
+
+          Akaike (AIC)                   19692.324
+          Bayesian (BIC)                 21656.966
+          Sample-Size Adjusted BIC       20247.347
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        138.25872          0.22408
+       2        134.18135          0.21747
+       3        133.00464          0.21557
+       4        128.03631          0.20751
+       5         83.51899          0.13536
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        138.25872          0.22408
+       2        134.18135          0.21747
+       3        133.00464          0.21557
+       4        128.03631          0.20751
+       5         83.51899          0.13536
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              142          0.23015
+       2              133          0.21556
+       3              134          0.21718
+       4              128          0.20746
+       5               80          0.12966
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.854
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5
+
+    1   0.917    0.024    0.018    0.033    0.010
+    2   0.006    0.913    0.036    0.032    0.013
+    3   0.005    0.037    0.893    0.038    0.026
+    4   0.047    0.026    0.032    0.889    0.006
+    5   0.008    0.013    0.024    0.003    0.951
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4        5
+
+    1   0.942    0.006    0.005    0.043    0.005
+    2   0.025    0.905    0.037    0.025    0.008
+    3   0.019    0.036    0.900    0.031    0.015
+    4   0.036    0.033    0.040    0.889    0.002
+    5   0.017    0.021    0.042    0.009    0.911
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4        5
+
+    1      5.299    0.232   -0.024    2.217    0.000
+    2      1.181    4.775    1.588    1.190    0.000
+    3      0.248    0.901    4.122    0.743    0.000
+    4      2.827    2.745    2.927    6.032    0.000
+    5     -4.009   -3.792   -3.073   -4.571    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ GENERAL1 WITH
+    GENERAL3           0.342      0.144      2.381      0.017
+
+ GENERAL3 WITH
+    GENERAL4           0.118      0.084      1.405      0.160
+
+ GENERAL4 WITH
+    GENERAL567         0.079      0.042      1.912      0.056
+
+ THREAT12 WITH
+    THREAT3           -0.007      0.033     -0.217      0.828
+
+ THREAT3  WITH
+    THREAT4            0.009      0.068      0.130      0.897
+
+ THREAT4  WITH
+    THREAT567          0.007      0.039      0.182      0.855
+
+ COPE12   WITH
+    COPE3              0.060      0.044      1.357      0.175
+
+ COPE3    WITH
+    COPE4              0.025      0.052      0.483      0.629
+
+ COPE4    WITH
+    COPE567            0.040      0.048      0.834      0.404
+
+ FNR12    WITH
+    FNR3               0.011      0.044      0.255      0.799
+
+ FNR3     WITH
+    FNR4              -0.011      0.058     -0.189      0.850
+
+ FNR4     WITH
+    FNR567             0.059      0.049      1.187      0.235
+
+ LOSS12   WITH
+    LOSS3              0.055      0.026      2.168      0.030
+
+ LOSS3    WITH
+    LOSS4             -0.001      0.040     -0.027      0.979
+
+ LOSS4    WITH
+    LOSS567            0.048      0.030      1.585      0.113
+
+ SLEEP12  WITH
+    SLEEP3             0.154      0.070      2.203      0.028
+
+ SLEEP3   WITH
+    SLEEP4             0.014      0.042      0.344      0.731
+
+ SLEEP4   WITH
+    SLEEP567           0.010      0.022      0.448      0.654
+
+ SOMATIC1 WITH
+    SOMATIC3           0.277      0.074      3.730      0.000
+
+ SOMATIC3 WITH
+    SOMATIC4          -0.056      0.060     -0.938      0.348
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.108      0.072     -1.512      0.130
+
+ PA12     WITH
+    PA3               -0.043      0.029     -1.458      0.145
+
+ PA3      WITH
+    PA4               -0.008      0.041     -0.185      0.853
+
+ PA4      WITH
+    PA567              0.067      0.026      2.574      0.010
+
+ Means
+    GENERAL12         -0.248      0.110     -2.258      0.024
+    THREAT12          -0.542      0.051    -10.704      0.000
+    COPE12             0.603      0.061      9.879      0.000
+    FNR12             -0.593      0.064     -9.272      0.000
+    LOSS12            -0.263      0.053     -4.969      0.000
+    SLEEP12           -0.153      0.072     -2.118      0.034
+    SOMATIC12          0.022      0.078      0.278      0.781
+    PA12               0.555      0.047     11.898      0.000
+    GENERAL3          -0.610      0.098     -6.229      0.000
+    THREAT3           -0.435      0.075     -5.819      0.000
+    COPE3              0.569      0.065      8.713      0.000
+    FNR3              -0.538      0.063     -8.510      0.000
+    LOSS3             -0.124      0.051     -2.435      0.015
+    SLEEP3            -0.202      0.088     -2.295      0.022
+    SOMATIC3          -0.109      0.098     -1.117      0.264
+    PA3                0.465      0.060      7.697      0.000
+    GENERAL4          -0.402      0.086     -4.686      0.000
+    THREAT4           -0.218      0.064     -3.385      0.001
+    COPE4              0.205      0.073      2.792      0.005
+    FNR4              -0.176      0.072     -2.429      0.015
+    LOSS4             -0.186      0.058     -3.190      0.001
+    SLEEP4            -0.114      0.050     -2.266      0.023
+    SOMATIC4           0.122      0.065      1.860      0.063
+    PA4                0.199      0.054      3.697      0.000
+    GENERAL567        -0.690      0.049    -13.985      0.000
+    THREAT567         -0.303      0.057     -5.289      0.000
+    COPE567            0.627      0.064      9.871      0.000
+    FNR567            -0.603      0.066     -9.178      0.000
+    LOSS567           -0.154      0.045     -3.404      0.001
+    SLEEP567          -0.264      0.045     -5.834      0.000
+    SOMATIC567         0.002      0.089      0.024      0.980
+    PA567              0.529      0.051     10.330      0.000
+
+ Variances
+    GENERAL12          0.876      0.153      5.704      0.000
+    THREAT12           0.198      0.032      6.189      0.000
+    COPE12             0.266      0.043      6.155      0.000
+    FNR12              0.297      0.049      6.097      0.000
+    LOSS12             0.202      0.037      5.496      0.000
+    SLEEP12            0.397      0.069      5.788      0.000
+    SOMATIC12          0.489      0.077      6.315      0.000
+    PA12               0.161      0.026      6.225      0.000
+    GENERAL3           0.366      0.131      2.790      0.005
+    THREAT3            0.226      0.066      3.438      0.001
+    COPE3              0.234      0.044      5.386      0.000
+    FNR3               0.224      0.042      5.337      0.000
+    LOSS3              0.137      0.026      5.281      0.000
+    SLEEP3             0.449      0.085      5.276      0.000
+    SOMATIC3           0.572      0.105      5.427      0.000
+    PA3                0.207      0.040      5.228      0.000
+    GENERAL4           0.429      0.078      5.524      0.000
+    THREAT4            0.248      0.045      5.542      0.000
+    COPE4              0.280      0.054      5.207      0.000
+    FNR4               0.277      0.054      5.160      0.000
+    LOSS4              0.184      0.035      5.184      0.000
+    SLEEP4             0.141      0.028      5.024      0.000
+    SOMATIC4           0.251      0.046      5.509      0.000
+    PA4                0.179      0.032      5.550      0.000
+    GENERAL567         0.157      0.036      4.323      0.000
+    THREAT567          0.290      0.043      6.728      0.000
+    COPE567            0.341      0.051      6.657      0.000
+    FNR567             0.360      0.054      6.638      0.000
+    LOSS567            0.167      0.033      5.124      0.000
+    SLEEP567           0.177      0.027      6.559      0.000
+    SOMATIC567         0.604      0.098      6.180      0.000
+    PA567              0.219      0.033      6.666      0.000
+
+Latent Class 2
+
+ GENERAL1 WITH
+    GENERAL3           0.045      0.057      0.784      0.433
+
+ GENERAL3 WITH
+    GENERAL4           0.130      0.058      2.240      0.025
+
+ GENERAL4 WITH
+    GENERAL567         0.045      0.045      0.986      0.324
+
+ THREAT12 WITH
+    THREAT3            0.097      0.048      2.024      0.043
+
+ THREAT3  WITH
+    THREAT4            0.107      0.042      2.560      0.010
+
+ THREAT4  WITH
+    THREAT567          0.031      0.049      0.636      0.524
+
+ COPE12   WITH
+    COPE3              0.034      0.057      0.594      0.552
+
+ COPE3    WITH
+    COPE4              0.087      0.056      1.568      0.117
+
+ COPE4    WITH
+    COPE567            0.053      0.055      0.963      0.335
+
+ FNR12    WITH
+    FNR3               0.034      0.043      0.791      0.429
+
+ FNR3     WITH
+    FNR4               0.082      0.060      1.357      0.175
+
+ FNR4     WITH
+    FNR567             0.039      0.055      0.700      0.484
+
+ LOSS12   WITH
+    LOSS3              0.081      0.043      1.888      0.059
+
+ LOSS3    WITH
+    LOSS4              0.104      0.039      2.651      0.008
+
+ LOSS4    WITH
+    LOSS567            0.130      0.043      3.041      0.002
+
+ SLEEP12  WITH
+    SLEEP3             0.180      0.057      3.162      0.002
+
+ SLEEP3   WITH
+    SLEEP4             0.065      0.049      1.350      0.177
+
+ SLEEP4   WITH
+    SLEEP567           0.048      0.037      1.309      0.190
+
+ SOMATIC1 WITH
+    SOMATIC3           0.189      0.106      1.780      0.075
+
+ SOMATIC3 WITH
+    SOMATIC4           0.103      0.074      1.387      0.166
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.010      0.075     -0.128      0.898
+
+ PA12     WITH
+    PA3                0.105      0.035      2.954      0.003
+
+ PA3      WITH
+    PA4                0.097      0.046      2.110      0.035
+
+ PA4      WITH
+    PA567             -0.011      0.033     -0.331      0.741
+
+ Means
+    GENERAL12         -0.338      0.049     -6.946      0.000
+    THREAT12           0.217      0.058      3.753      0.000
+    COPE12            -0.290      0.061     -4.770      0.000
+    FNR12              0.334      0.051      6.599      0.000
+    LOSS12            -0.031      0.059     -0.532      0.595
+    SLEEP12           -0.167      0.056     -2.978      0.003
+    SOMATIC12         -0.006      0.086     -0.069      0.945
+    PA12              -0.225      0.049     -4.601      0.000
+    GENERAL3          -0.174      0.080     -2.162      0.031
+    THREAT3            0.312      0.078      4.020      0.000
+    COPE3             -0.274      0.094     -2.921      0.003
+    FNR3               0.340      0.091      3.743      0.000
+    LOSS3             -0.135      0.076     -1.768      0.077
+    SLEEP3             0.107      0.092      1.161      0.246
+    SOMATIC3           0.035      0.118      0.296      0.767
+    PA3               -0.294      0.088     -3.323      0.001
+    GENERAL4          -0.154      0.071     -2.150      0.032
+    THREAT4           -0.314      0.057     -5.550      0.000
+    COPE4              0.380      0.061      6.173      0.000
+    FNR4              -0.326      0.064     -5.054      0.000
+    LOSS4             -0.481      0.055     -8.806      0.000
+    SLEEP4            -0.398      0.045     -8.786      0.000
+    SOMATIC4          -0.281      0.065     -4.346      0.000
+    PA4                0.489      0.057      8.632      0.000
+    GENERAL567        -0.246      0.061     -4.059      0.000
+    THREAT567          0.195      0.076      2.555      0.011
+    COPE567           -0.588      0.076     -7.775      0.000
+    FNR567             0.623      0.073      8.566      0.000
+    LOSS567            0.275      0.078      3.542      0.000
+    SLEEP567          -0.106      0.074     -1.434      0.152
+    SOMATIC567         0.095      0.109      0.873      0.383
+    PA567             -0.510      0.057     -8.943      0.000
+
+ Variances
+    GENERAL12          0.156      0.027      5.676      0.000
+    THREAT12           0.213      0.035      6.047      0.000
+    COPE12             0.238      0.042      5.653      0.000
+    FNR12              0.157      0.027      5.873      0.000
+    LOSS12             0.229      0.038      6.099      0.000
+    SLEEP12            0.230      0.041      5.648      0.000
+    SOMATIC12          0.542      0.090      6.004      0.000
+    PA12               0.139      0.024      5.755      0.000
+    GENERAL3           0.276      0.055      5.066      0.000
+    THREAT3            0.323      0.061      5.320      0.000
+    COPE3              0.440      0.086      5.128      0.000
+    FNR3               0.406      0.080      5.061      0.000
+    LOSS3              0.310      0.065      4.798      0.000
+    SLEEP3             0.454      0.102      4.457      0.000
+    SOMATIC3           0.767      0.140      5.483      0.000
+    PA3                0.363      0.079      4.597      0.000
+    GENERAL4           0.325      0.055      5.922      0.000
+    THREAT4            0.214      0.037      5.784      0.000
+    COPE4              0.227      0.042      5.430      0.000
+    FNR4               0.259      0.048      5.446      0.000
+    LOSS4              0.209      0.037      5.712      0.000
+    SLEEP4             0.131      0.024      5.512      0.000
+    SOMATIC4           0.253      0.046      5.506      0.000
+    PA4                0.205      0.036      5.752      0.000
+    GENERAL567         0.239      0.040      6.045      0.000
+    THREAT567          0.459      0.086      5.358      0.000
+    COPE567            0.396      0.068      5.788      0.000
+    FNR567             0.357      0.066      5.377      0.000
+    LOSS567            0.421      0.069      6.082      0.000
+    SLEEP567           0.412      0.066      6.247      0.000
+    SOMATIC567         0.786      0.129      6.071      0.000
+    PA567              0.246      0.040      6.141      0.000
+
+Latent Class 3
+
+ GENERAL1 WITH
+    GENERAL3           0.283      0.113      2.517      0.012
+
+ GENERAL3 WITH
+    GENERAL4           0.386      0.105      3.685      0.000
+
+ GENERAL4 WITH
+    GENERAL567         0.482      0.114      4.224      0.000
+
+ THREAT12 WITH
+    THREAT3            0.026      0.035      0.734      0.463
+
+ THREAT3  WITH
+    THREAT4            0.066      0.035      1.863      0.062
+
+ THREAT4  WITH
+    THREAT567          0.051      0.022      2.314      0.021
+
+ COPE12   WITH
+    COPE3              0.121      0.031      3.878      0.000
+
+ COPE3    WITH
+    COPE4              0.074      0.035      2.101      0.036
+
+ COPE4    WITH
+    COPE567            0.028      0.030      0.946      0.344
+
+ FNR12    WITH
+    FNR3               0.080      0.027      2.925      0.003
+
+ FNR3     WITH
+    FNR4               0.063      0.041      1.549      0.121
+
+ FNR4     WITH
+    FNR567             0.021      0.031      0.666      0.506
+
+ LOSS12   WITH
+    LOSS3              0.145      0.051      2.837      0.005
+
+ LOSS3    WITH
+    LOSS4              0.159      0.048      3.315      0.001
+
+ LOSS4    WITH
+    LOSS567           -0.009      0.036     -0.260      0.795
+
+ SLEEP12  WITH
+    SLEEP3             0.060      0.085      0.701      0.484
+
+ SLEEP3   WITH
+    SLEEP4            -0.003      0.086     -0.036      0.972
+
+ SLEEP4   WITH
+    SLEEP567           0.151      0.122      1.240      0.215
+
+ SOMATIC1 WITH
+    SOMATIC3           0.231      0.080      2.900      0.004
+
+ SOMATIC3 WITH
+    SOMATIC4          -0.091      0.152     -0.596      0.551
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.262      0.096     -2.735      0.006
+
+ PA12     WITH
+    PA3                0.043      0.023      1.849      0.064
+
+ PA3      WITH
+    PA4                0.097      0.035      2.742      0.006
+
+ PA4      WITH
+    PA567              0.010      0.028      0.344      0.731
+
+ Means
+    GENERAL12          0.684      0.120      5.677      0.000
+    THREAT12           0.413      0.047      8.731      0.000
+    COPE12            -0.371      0.063     -5.868      0.000
+    FNR12              0.381      0.052      7.277      0.000
+    LOSS12             0.486      0.068      7.106      0.000
+    SLEEP12           -0.033      0.103     -0.319      0.749
+    SOMATIC12         -0.021      0.082     -0.263      0.793
+    PA12              -0.328      0.048     -6.892      0.000
+    GENERAL3           0.270      0.098      2.751      0.006
+    THREAT3            0.221      0.072      3.093      0.002
+    COPE3             -0.466      0.061     -7.599      0.000
+    FNR3               0.396      0.064      6.151      0.000
+    LOSS3              0.409      0.088      4.647      0.000
+    SLEEP3            -0.248      0.085     -2.926      0.003
+    SOMATIC3           0.241      0.108      2.242      0.025
+    PA3               -0.342      0.064     -5.352      0.000
+    GENERAL4           0.313      0.117      2.673      0.008
+    THREAT4            0.311      0.054      5.809      0.000
+    COPE4             -0.439      0.062     -7.047      0.000
+    FNR4               0.343      0.060      5.742      0.000
+    LOSS4              0.475      0.057      8.378      0.000
+    SLEEP4             0.125      0.094      1.323      0.186
+    SOMATIC4           0.065      0.098      0.662      0.508
+    PA4               -0.430      0.056     -7.683      0.000
+    GENERAL567         0.242      0.094      2.580      0.010
+    THREAT567         -0.016      0.043     -0.382      0.703
+    COPE567           -0.006      0.044     -0.139      0.889
+    FNR567            -0.019      0.045     -0.425      0.671
+    LOSS567            0.049      0.061      0.803      0.422
+    SLEEP567           0.059      0.091      0.648      0.517
+    SOMATIC567         0.140      0.088      1.579      0.114
+    PA567             -0.027      0.049     -0.547      0.584
+
+ Variances
+    GENERAL12          0.850      0.155      5.477      0.000
+    THREAT12           0.136      0.024      5.601      0.000
+    COPE12             0.226      0.044      5.111      0.000
+    FNR12              0.156      0.030      5.224      0.000
+    LOSS12             0.291      0.052      5.551      0.000
+    SLEEP12            0.673      0.120      5.615      0.000
+    SOMATIC12          0.423      0.075      5.663      0.000
+    PA12               0.134      0.025      5.299      0.000
+    GENERAL3           0.515      0.112      4.611      0.000
+    THREAT3            0.196      0.041      4.814      0.000
+    COPE3              0.188      0.035      5.372      0.000
+    FNR3               0.204      0.042      4.873      0.000
+    LOSS3              0.423      0.081      5.207      0.000
+    SLEEP3             0.316      0.068      4.666      0.000
+    SOMATIC3           0.562      0.107      5.243      0.000
+    PA3                0.187      0.041      4.593      0.000
+    GENERAL4           0.909      0.161      5.644      0.000
+    THREAT4            0.144      0.031      4.644      0.000
+    COPE4              0.194      0.038      5.156      0.000
+    FNR4               0.177      0.035      5.063      0.000
+    LOSS4              0.173      0.035      4.925      0.000
+    SLEEP4             0.461      0.092      5.031      0.000
+    SOMATIC4           0.521      0.102      5.090      0.000
+    PA4                0.161      0.032      5.035      0.000
+    GENERAL567         0.719      0.116      6.212      0.000
+    THREAT567          0.139      0.022      6.209      0.000
+    COPE567            0.128      0.022      5.728      0.000
+    FNR567             0.129      0.024      5.389      0.000
+    LOSS567            0.256      0.047      5.449      0.000
+    SLEEP567           0.655      0.108      6.080      0.000
+    SOMATIC567         0.542      0.090      6.050      0.000
+    PA567              0.177      0.029      6.031      0.000
+
+Latent Class 4
+
+ GENERAL1 WITH
+    GENERAL3           0.373      0.072      5.160      0.000
+
+ GENERAL3 WITH
+    GENERAL4           0.007      0.075      0.088      0.930
+
+ GENERAL4 WITH
+    GENERAL567         0.050      0.078      0.647      0.518
+
+ THREAT12 WITH
+    THREAT3            0.037      0.019      1.952      0.051
+
+ THREAT3  WITH
+    THREAT4            0.013      0.025      0.544      0.586
+
+ THREAT4  WITH
+    THREAT567          0.022      0.022      0.999      0.318
+
+ COPE12   WITH
+    COPE3              0.037      0.017      2.132      0.033
+
+ COPE3    WITH
+    COPE4             -0.011      0.023     -0.461      0.645
+
+ COPE4    WITH
+    COPE567            0.123      0.027      4.603      0.000
+
+ FNR12    WITH
+    FNR3               0.040      0.016      2.487      0.013
+
+ FNR3     WITH
+    FNR4              -0.045      0.026     -1.764      0.078
+
+ FNR4     WITH
+    FNR567             0.067      0.021      3.150      0.002
+
+ LOSS12   WITH
+    LOSS3             -0.004      0.040     -0.112      0.911
+
+ LOSS3    WITH
+    LOSS4              0.032      0.046      0.682      0.495
+
+ LOSS4    WITH
+    LOSS567            0.037      0.032      1.140      0.254
+
+ SLEEP12  WITH
+    SLEEP3             0.245      0.104      2.349      0.019
+
+ SLEEP3   WITH
+    SLEEP4            -0.217      0.155     -1.398      0.162
+
+ SLEEP4   WITH
+    SLEEP567           0.313      0.122      2.573      0.010
+
+ SOMATIC1 WITH
+    SOMATIC3           0.619      0.099      6.245      0.000
+
+ SOMATIC3 WITH
+    SOMATIC4           0.051      0.048      1.068      0.285
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.146      0.089     -1.646      0.100
+
+ PA12     WITH
+    PA3                0.013      0.016      0.782      0.434
+
+ PA3      WITH
+    PA4                0.007      0.014      0.461      0.645
+
+ PA4      WITH
+    PA567              0.053      0.017      3.094      0.002
+
+ Means
+    GENERAL12         -0.076      0.080     -0.955      0.340
+    THREAT12          -0.186      0.046     -4.067      0.000
+    COPE12             0.170      0.043      3.956      0.000
+    FNR12             -0.271      0.049     -5.507      0.000
+    LOSS12            -0.427      0.059     -7.263      0.000
+    SLEEP12            0.282      0.101      2.803      0.005
+    SOMATIC12          0.085      0.085      0.998      0.318
+    PA12               0.128      0.042      3.020      0.003
+    GENERAL3          -0.177      0.092     -1.919      0.055
+    THREAT3            0.081      0.048      1.702      0.089
+    COPE3              0.089      0.055      1.634      0.102
+    FNR3               0.001      0.047      0.016      0.987
+    LOSS3             -0.329      0.076     -4.307      0.000
+    SLEEP3             0.444      0.104      4.260      0.000
+    SOMATIC3           0.115      0.108      1.068      0.285
+    PA3               -0.035      0.035     -0.986      0.324
+    GENERAL4          -0.193      0.101     -1.912      0.056
+    THREAT4           -0.185      0.055     -3.376      0.001
+    COPE4              0.213      0.056      3.815      0.000
+    FNR4              -0.158      0.056     -2.844      0.004
+    LOSS4             -0.319      0.049     -6.571      0.000
+    SLEEP4             0.286      0.117      2.449      0.014
+    SOMATIC4          -0.181      0.075     -2.415      0.016
+    PA4                0.193      0.048      4.028      0.000
+    GENERAL567        -0.247      0.065     -3.803      0.000
+    THREAT567          0.051      0.041      1.236      0.216
+    COPE567            0.023      0.049      0.469      0.639
+    FNR567             0.032      0.047      0.680      0.496
+    LOSS567           -0.302      0.059     -5.149      0.000
+    SLEEP567           0.328      0.081      4.056      0.000
+    SOMATIC567        -0.168      0.098     -1.725      0.084
+    PA567             -0.009      0.040     -0.230      0.818
+
+ Variances
+    GENERAL12          0.447      0.076      5.886      0.000
+    THREAT12           0.110      0.021      5.308      0.000
+    COPE12             0.102      0.018      5.677      0.000
+    FNR12              0.114      0.023      5.051      0.000
+    LOSS12             0.202      0.037      5.426      0.000
+    SLEEP12            0.574      0.116      4.941      0.000
+    SOMATIC12          0.572      0.094      6.102      0.000
+    PA12               0.082      0.026      3.140      0.002
+    GENERAL3           0.459      0.082      5.567      0.000
+    THREAT3            0.107      0.024      4.442      0.000
+    COPE3              0.106      0.028      3.763      0.000
+    FNR3               0.083      0.027      3.015      0.003
+    LOSS3              0.251      0.050      4.996      0.000
+    SLEEP3             0.515      0.105      4.912      0.000
+    SOMATIC3           0.823      0.133      6.176      0.000
+    PA3                0.054      0.012      4.676      0.000
+    GENERAL4           0.508      0.102      4.959      0.000
+    THREAT4            0.144      0.029      5.014      0.000
+    COPE4              0.173      0.034      5.129      0.000
+    FNR4               0.161      0.032      5.036      0.000
+    LOSS4              0.107      0.022      4.839      0.000
+    SLEEP4             0.748      0.170      4.402      0.000
+    SOMATIC4           0.284      0.057      4.963      0.000
+    PA4                0.124      0.024      5.054      0.000
+    GENERAL567         0.278      0.046      5.989      0.000
+    THREAT567          0.117      0.020      5.982      0.000
+    COPE567            0.172      0.029      5.955      0.000
+    FNR567             0.115      0.021      5.593      0.000
+    LOSS567            0.197      0.037      5.387      0.000
+    SLEEP567           0.492      0.078      6.285      0.000
+    SOMATIC567         0.583      0.108      5.393      0.000
+    PA567              0.067      0.016      4.211      0.000
+
+Latent Class 5
+
+ GENERAL1 WITH
+    GENERAL3           0.240      0.155      1.549      0.121
+
+ GENERAL3 WITH
+    GENERAL4           0.282      0.234      1.204      0.229
+
+ GENERAL4 WITH
+    GENERAL567         1.070      0.249      4.295      0.000
+
+ THREAT12 WITH
+    THREAT3            0.130      0.093      1.392      0.164
+
+ THREAT3  WITH
+    THREAT4            0.302      0.108      2.791      0.005
+
+ THREAT4  WITH
+    THREAT567          0.033      0.191      0.172      0.864
+
+ COPE12   WITH
+    COPE3              0.321      0.190      1.689      0.091
+
+ COPE3    WITH
+    COPE4              0.519      0.359      1.444      0.149
+
+ COPE4    WITH
+    COPE567            0.282      0.257      1.097      0.273
+
+ FNR12    WITH
+    FNR3               0.272      0.180      1.510      0.131
+
+ FNR3     WITH
+    FNR4               0.557      0.397      1.403      0.161
+
+ FNR4     WITH
+    FNR567             0.345      0.295      1.169      0.242
+
+ LOSS12   WITH
+    LOSS3              0.980      0.277      3.540      0.000
+
+ LOSS3    WITH
+    LOSS4              0.586      0.182      3.218      0.001
+
+ LOSS4    WITH
+    LOSS567            0.560      0.184      3.049      0.002
+
+ SLEEP12  WITH
+    SLEEP3             0.389      0.160      2.433      0.015
+
+ SLEEP3   WITH
+    SLEEP4             0.106      0.203      0.522      0.602
+
+ SLEEP4   WITH
+    SLEEP567           0.303      0.150      2.022      0.043
+
+ SOMATIC1 WITH
+    SOMATIC3           0.089      0.127      0.701      0.484
+
+ SOMATIC3 WITH
+    SOMATIC4           0.035      0.201      0.176      0.860
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.164      0.206     -0.794      0.427
+
+ PA12     WITH
+    PA3                0.106      0.100      1.064      0.287
+
+ PA3      WITH
+    PA4                0.256      0.131      1.956      0.051
+
+ PA4      WITH
+    PA567              0.109      0.135      0.807      0.419
+
+ Means
+    GENERAL12          0.927      0.158      5.856      0.000
+    THREAT12           0.144      0.128      1.129      0.259
+    COPE12            -0.289      0.147     -1.959      0.050
+    FNR12              0.198      0.151      1.308      0.191
+    LOSS12             0.313      0.181      1.731      0.084
+    SLEEP12            0.084      0.121      0.691      0.490
+    SOMATIC12         -0.133      0.128     -1.041      0.298
+    PA12              -0.111      0.124     -0.891      0.373
+    GENERAL3           0.929      0.150      6.200      0.000
+    THREAT3           -0.137      0.118     -1.160      0.246
+    COPE3             -0.056      0.189     -0.296      0.767
+    FNR3              -0.006      0.168     -0.034      0.973
+    LOSS3             -0.018      0.189     -0.096      0.923
+    SLEEP3             0.180      0.167      1.075      0.283
+    SOMATIC3          -0.151      0.131     -1.154      0.249
+    PA3                0.184      0.124      1.487      0.137
+    GENERAL4           0.471      0.187      2.511      0.012
+    THREAT4            0.561      0.135      4.160      0.000
+    COPE4             -0.631      0.220     -2.873      0.004
+    FNR4               0.540      0.215      2.516      0.012
+    LOSS4              0.876      0.156      5.620      0.000
+    SLEEP4             0.279      0.155      1.795      0.073
+    SOMATIC4           0.401      0.208      1.930      0.054
+    PA4               -0.762      0.144     -5.297      0.000
+    GENERAL567         0.816      0.140      5.837      0.000
+    THREAT567          0.130      0.148      0.882      0.378
+    COPE567           -0.101      0.124     -0.815      0.415
+    FNR567             0.104      0.127      0.819      0.413
+    LOSS567            0.286      0.159      1.799      0.072
+    SLEEP567           0.178      0.112      1.581      0.114
+    SOMATIC567        -0.081      0.132     -0.616      0.538
+    PA567              0.072      0.114      0.632      0.528
+
+ Variances
+    GENERAL12          1.080      0.222      4.861      0.000
+    THREAT12           0.758      0.155      4.873      0.000
+    COPE12             1.008      0.204      4.944      0.000
+    FNR12              1.053      0.214      4.918      0.000
+    LOSS12             1.695      0.342      4.949      0.000
+    SLEEP12            0.703      0.156      4.515      0.000
+    SOMATIC12          0.783      0.162      4.844      0.000
+    PA12               0.686      0.139      4.925      0.000
+    GENERAL3           0.744      0.187      3.989      0.000
+    THREAT3            0.397      0.121      3.288      0.001
+    COPE3              1.199      0.306      3.923      0.000
+    FNR3               0.930      0.250      3.713      0.000
+    LOSS3              1.577      0.308      5.117      0.000
+    SLEEP3             0.952      0.226      4.207      0.000
+    SOMATIC3           0.616      0.146      4.211      0.000
+    PA3                0.576      0.137      4.209      0.000
+    GENERAL4           1.726      0.376      4.591      0.000
+    THREAT4            0.723      0.163      4.431      0.000
+    COPE4              1.880      0.413      4.558      0.000
+    FNR4               1.833      0.400      4.580      0.000
+    LOSS4              1.072      0.220      4.863      0.000
+    SLEEP4             0.930      0.210      4.431      0.000
+    SOMATIC4           1.674      0.379      4.422      0.000
+    PA4                0.829      0.182      4.549      0.000
+    GENERAL567         1.128      0.217      5.194      0.000
+    THREAT567          1.117      0.224      4.994      0.000
+    COPE567            0.694      0.154      4.508      0.000
+    FNR567             0.676      0.156      4.345      0.000
+    LOSS567            1.275      0.254      5.027      0.000
+    SLEEP567           0.612      0.128      4.779      0.000
+    SOMATIC567         0.654      0.141      4.652      0.000
+    PA567              0.610      0.119      5.124      0.000
+
+Categorical Latent Variables
+
+ Means
+    CLASS#1            0.504      0.159      3.175      0.002
+    CLASS#2            0.474      0.164      2.895      0.004
+    CLASS#3            0.465      0.159      2.923      0.003
+    CLASS#4            0.427      0.162      2.640      0.008
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ GENERAL1 WITH
+    GENERAL3           0.604      0.130      4.658      0.000
+
+ GENERAL3 WITH
+    GENERAL4           0.298      0.187      1.589      0.112
+
+ GENERAL4 WITH
+    GENERAL567         0.306      0.145      2.106      0.035
+
+ THREAT12 WITH
+    THREAT3           -0.034      0.156     -0.217      0.828
+
+ THREAT3  WITH
+    THREAT4            0.037      0.287      0.130      0.897
+
+ THREAT4  WITH
+    THREAT567          0.026      0.144      0.182      0.855
+
+ COPE12   WITH
+    COPE3              0.242      0.170      1.424      0.154
+
+ COPE3    WITH
+    COPE4              0.098      0.203      0.484      0.629
+
+ COPE4    WITH
+    COPE567            0.129      0.152      0.846      0.397
+
+ FNR12    WITH
+    FNR3               0.044      0.171      0.255      0.799
+
+ FNR3     WITH
+    FNR4              -0.044      0.232     -0.189      0.850
+
+ FNR4     WITH
+    FNR567             0.186      0.151      1.229      0.219
+
+ LOSS12   WITH
+    LOSS3              0.333      0.133      2.508      0.012
+
+ LOSS3    WITH
+    LOSS4             -0.007      0.253     -0.027      0.979
+
+ LOSS4    WITH
+    LOSS567            0.272      0.159      1.713      0.087
+
+ SLEEP12  WITH
+    SLEEP3             0.364      0.146      2.490      0.013
+
+ SLEEP3   WITH
+    SLEEP4             0.058      0.166      0.346      0.729
+
+ SLEEP4   WITH
+    SLEEP567           0.062      0.137      0.452      0.651
+
+ SOMATIC1 WITH
+    SOMATIC3           0.524      0.103      5.068      0.000
+
+ SOMATIC3 WITH
+    SOMATIC4          -0.148      0.156     -0.948      0.343
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.278      0.173     -1.604      0.109
+
+ PA12     WITH
+    PA3               -0.235      0.155     -1.515      0.130
+
+ PA3      WITH
+    PA4               -0.039      0.212     -0.185      0.853
+
+ PA4      WITH
+    PA567              0.340      0.117      2.906      0.004
+
+ Means
+    GENERAL12         -0.265      0.124     -2.141      0.032
+    THREAT12          -1.217      0.149     -8.183      0.000
+    COPE12             1.169      0.159      7.371      0.000
+    FNR12             -1.088      0.152     -7.164      0.000
+    LOSS12            -0.585      0.132     -4.429      0.000
+    SLEEP12           -0.243      0.119     -2.048      0.041
+    SOMATIC12          0.031      0.112      0.278      0.781
+    PA12               1.383      0.163      8.488      0.000
+    GENERAL3          -1.009      0.305     -3.311      0.001
+    THREAT3           -0.915      0.161     -5.673      0.000
+    COPE3              1.175      0.170      6.894      0.000
+    FNR3              -1.136      0.170     -6.670      0.000
+    LOSS3             -0.335      0.140     -2.392      0.017
+    SLEEP3            -0.301      0.136     -2.211      0.027
+    SOMATIC3          -0.145      0.131     -1.101      0.271
+    PA3                1.021      0.167      6.113      0.000
+    GENERAL4          -0.615      0.144     -4.263      0.000
+    THREAT4           -0.438      0.135     -3.235      0.001
+    COPE4              0.388      0.142      2.728      0.006
+    FNR4              -0.335      0.141     -2.369      0.018
+    LOSS4             -0.433      0.141     -3.068      0.002
+    SLEEP4            -0.304      0.139     -2.184      0.029
+    SOMATIC4           0.242      0.132      1.843      0.065
+    PA4                0.469      0.133      3.517      0.000
+    GENERAL567        -1.742      0.279     -6.246      0.000
+    THREAT567         -0.562      0.115     -4.873      0.000
+    COPE567            1.074      0.139      7.738      0.000
+    FNR567            -1.005      0.138     -7.298      0.000
+    LOSS567           -0.376      0.119     -3.153      0.002
+    SLEEP567          -0.629      0.119     -5.272      0.000
+    SOMATIC567         0.003      0.115      0.024      0.980
+    PA567              1.129      0.141      7.977      0.000
+
+ Variances
+    GENERAL12          1.000      0.000    999.000    999.000
+    THREAT12           1.000      0.000    999.000    999.000
+    COPE12             1.000      0.000    999.000    999.000
+    FNR12              1.000      0.000    999.000    999.000
+    LOSS12             1.000      0.000    999.000    999.000
+    SLEEP12            1.000      0.000    999.000    999.000
+    SOMATIC12          1.000      0.000    999.000    999.000
+    PA12               1.000      0.000    999.000    999.000
+    GENERAL3           1.000      0.000    999.000    999.000
+    THREAT3            1.000      0.000    999.000    999.000
+    COPE3              1.000      0.000    999.000    999.000
+    FNR3               1.000      0.000    999.000    999.000
+    LOSS3              1.000      0.000    999.000    999.000
+    SLEEP3             1.000      0.000    999.000    999.000
+    SOMATIC3           1.000      0.000    999.000    999.000
+    PA3                1.000      0.000    999.000    999.000
+    GENERAL4           1.000      0.000    999.000    999.000
+    THREAT4            1.000      0.000    999.000    999.000
+    COPE4              1.000      0.000    999.000    999.000
+    FNR4               1.000      0.000    999.000    999.000
+    LOSS4              1.000      0.000    999.000    999.000
+    SLEEP4             1.000      0.000    999.000    999.000
+    SOMATIC4           1.000      0.000    999.000    999.000
+    PA4                1.000      0.000    999.000    999.000
+    GENERAL567         1.000      0.000    999.000    999.000
+    THREAT567          1.000      0.000    999.000    999.000
+    COPE567            1.000      0.000    999.000    999.000
+    FNR567             1.000      0.000    999.000    999.000
+    LOSS567            1.000      0.000    999.000    999.000
+    SLEEP567           1.000      0.000    999.000    999.000
+    SOMATIC567         1.000      0.000    999.000    999.000
+    PA567              1.000      0.000    999.000    999.000
+
+Latent Class 2
+
+ GENERAL1 WITH
+    GENERAL3           0.216      0.276      0.782      0.434
+
+ GENERAL3 WITH
+    GENERAL4           0.436      0.170      2.559      0.010
+
+ GENERAL4 WITH
+    GENERAL567         0.161      0.163      0.989      0.323
+
+ THREAT12 WITH
+    THREAT3            0.370      0.170      2.183      0.029
+
+ THREAT3  WITH
+    THREAT4            0.408      0.135      3.022      0.003
+
+ THREAT4  WITH
+    THREAT567          0.099      0.154      0.644      0.519
+
+ COPE12   WITH
+    COPE3              0.105      0.175      0.600      0.548
+
+ COPE3    WITH
+    COPE4              0.277      0.164      1.687      0.092
+
+ COPE4    WITH
+    COPE567            0.177      0.178      0.994      0.320
+
+ FNR12    WITH
+    FNR3               0.135      0.167      0.805      0.421
+
+ FNR3     WITH
+    FNR4               0.253      0.176      1.438      0.150
+
+ FNR4     WITH
+    FNR567             0.127      0.179      0.712      0.476
+
+ LOSS12   WITH
+    LOSS3              0.303      0.152      1.989      0.047
+
+ LOSS3    WITH
+    LOSS4              0.408      0.129      3.172      0.002
+
+ LOSS4    WITH
+    LOSS567            0.437      0.118      3.719      0.000
+
+ SLEEP12  WITH
+    SLEEP3             0.557      0.124      4.502      0.000
+
+ SLEEP3   WITH
+    SLEEP4             0.269      0.185      1.450      0.147
+
+ SLEEP4   WITH
+    SLEEP567           0.206      0.152      1.356      0.175
+
+ SOMATIC1 WITH
+    SOMATIC3           0.293      0.155      1.892      0.058
+
+ SOMATIC3 WITH
+    SOMATIC4           0.233      0.161      1.450      0.147
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.021      0.168     -0.128      0.898
+
+ PA12     WITH
+    PA3                0.465      0.139      3.349      0.001
+
+ PA3      WITH
+    PA4                0.355      0.146      2.432      0.015
+
+ PA4      WITH
+    PA567             -0.049      0.147     -0.332      0.740
+
+ Means
+    GENERAL12         -0.856      0.153     -5.587      0.000
+    THREAT12           0.469      0.133      3.527      0.000
+    COPE12            -0.595      0.130     -4.567      0.000
+    FNR12              0.842      0.149      5.655      0.000
+    LOSS12            -0.065      0.123     -0.531      0.596
+    SLEEP12           -0.347      0.121     -2.868      0.004
+    SOMATIC12         -0.008      0.117     -0.069      0.945
+    PA12              -0.603      0.147     -4.092      0.000
+    GENERAL3          -0.331      0.157     -2.105      0.035
+    THREAT3            0.549      0.150      3.662      0.000
+    COPE3             -0.414      0.149     -2.776      0.006
+    FNR3               0.534      0.155      3.447      0.001
+    LOSS3             -0.242      0.137     -1.766      0.077
+    SLEEP3             0.159      0.134      1.186      0.236
+    SOMATIC3           0.040      0.135      0.296      0.767
+    PA3               -0.487      0.170     -2.870      0.004
+    GENERAL4          -0.270      0.126     -2.134      0.033
+    THREAT4           -0.679      0.135     -5.025      0.000
+    COPE4              0.797      0.154      5.174      0.000
+    FNR4              -0.640      0.142     -4.491      0.000
+    LOSS4             -1.052      0.156     -6.743      0.000
+    SLEEP4            -1.100      0.168     -6.540      0.000
+    SOMATIC4          -0.559      0.142     -3.929      0.000
+    PA4                1.080      0.158      6.849      0.000
+    GENERAL567        -0.504      0.136     -3.704      0.000
+    THREAT567          0.288      0.118      2.434      0.015
+    COPE567           -0.934      0.136     -6.858      0.000
+    FNR567             1.043      0.146      7.161      0.000
+    LOSS567            0.423      0.124      3.416      0.001
+    SLEEP567          -0.166      0.117     -1.414      0.157
+    SOMATIC567         0.107      0.123      0.871      0.384
+    PA567             -1.028      0.144     -7.152      0.000
+
+ Variances
+    GENERAL12          1.000      0.000    999.000    999.000
+    THREAT12           1.000      0.000    999.000    999.000
+    COPE12             1.000      0.000    999.000    999.000
+    FNR12              1.000      0.000    999.000    999.000
+    LOSS12             1.000      0.000    999.000    999.000
+    SLEEP12            1.000      0.000    999.000    999.000
+    SOMATIC12          1.000      0.000    999.000    999.000
+    PA12               1.000      0.000    999.000    999.000
+    GENERAL3           1.000      0.000    999.000    999.000
+    THREAT3            1.000      0.000    999.000    999.000
+    COPE3              1.000      0.000    999.000    999.000
+    FNR3               1.000      0.000    999.000    999.000
+    LOSS3              1.000      0.000    999.000    999.000
+    SLEEP3             1.000      0.000    999.000    999.000
+    SOMATIC3           1.000      0.000    999.000    999.000
+    PA3                1.000      0.000    999.000    999.000
+    GENERAL4           1.000      0.000    999.000    999.000
+    THREAT4            1.000      0.000    999.000    999.000
+    COPE4              1.000      0.000    999.000    999.000
+    FNR4               1.000      0.000    999.000    999.000
+    LOSS4              1.000      0.000    999.000    999.000
+    SLEEP4             1.000      0.000    999.000    999.000
+    SOMATIC4           1.000      0.000    999.000    999.000
+    PA4                1.000      0.000    999.000    999.000
+    GENERAL567         1.000      0.000    999.000    999.000
+    THREAT567          1.000      0.000    999.000    999.000
+    COPE567            1.000      0.000    999.000    999.000
+    FNR567             1.000      0.000    999.000    999.000
+    LOSS567            1.000      0.000    999.000    999.000
+    SLEEP567           1.000      0.000    999.000    999.000
+    SOMATIC567         1.000      0.000    999.000    999.000
+    PA567              1.000      0.000    999.000    999.000
+
+Latent Class 3
+
+ GENERAL1 WITH
+    GENERAL3           0.428      0.148      2.896      0.004
+
+ GENERAL3 WITH
+    GENERAL4           0.564      0.112      5.041      0.000
+
+ GENERAL4 WITH
+    GENERAL567         0.596      0.095      6.301      0.000
+
+ THREAT12 WITH
+    THREAT3            0.157      0.210      0.750      0.453
+
+ THREAT3  WITH
+    THREAT4            0.393      0.189      2.079      0.038
+
+ THREAT4  WITH
+    THREAT567          0.362      0.142      2.557      0.011
+
+ COPE12   WITH
+    COPE3              0.589      0.098      6.036      0.000
+
+ COPE3    WITH
+    COPE4              0.386      0.163      2.376      0.018
+
+ COPE4    WITH
+    COPE567            0.179      0.186      0.960      0.337
+
+ FNR12    WITH
+    FNR3               0.450      0.121      3.719      0.000
+
+ FNR3     WITH
+    FNR4               0.331      0.194      1.704      0.088
+
+ FNR4     WITH
+    FNR567             0.136      0.201      0.679      0.497
+
+ LOSS12   WITH
+    LOSS3              0.415      0.121      3.431      0.001
+
+ LOSS3    WITH
+    LOSS4              0.587      0.127      4.613      0.000
+
+ LOSS4    WITH
+    LOSS567           -0.045      0.173     -0.260      0.795
+
+ SLEEP12  WITH
+    SLEEP3             0.129      0.182      0.710      0.478
+
+ SLEEP3   WITH
+    SLEEP4            -0.008      0.226     -0.036      0.972
+
+ SLEEP4   WITH
+    SLEEP567           0.274      0.209      1.312      0.190
+
+ SOMATIC1 WITH
+    SOMATIC3           0.474      0.134      3.539      0.000
+
+ SOMATIC3 WITH
+    SOMATIC4          -0.167      0.278     -0.602      0.547
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.494      0.147     -3.349      0.001
+
+ PA12     WITH
+    PA3                0.275      0.137      2.005      0.045
+
+ PA3      WITH
+    PA4                0.557      0.150      3.717      0.000
+
+ PA4      WITH
+    PA567              0.058      0.167      0.345      0.730
+
+ Means
+    GENERAL12          0.742      0.142      5.223      0.000
+    THREAT12           1.117      0.162      6.885      0.000
+    COPE12            -0.782      0.142     -5.493      0.000
+    FNR12              0.964      0.164      5.896      0.000
+    LOSS12             0.902      0.153      5.888      0.000
+    SLEEP12           -0.040      0.126     -0.319      0.750
+    SOMATIC12         -0.033      0.126     -0.263      0.793
+    PA12              -0.897      0.162     -5.524      0.000
+    GENERAL3           0.376      0.138      2.726      0.006
+    THREAT3            0.501      0.162      3.088      0.002
+    COPE3             -1.076      0.178     -6.049      0.000
+    FNR3               0.877      0.170      5.164      0.000
+    LOSS3              0.628      0.145      4.327      0.000
+    SLEEP3            -0.441      0.164     -2.684      0.007
+    SOMATIC3           0.321      0.146      2.203      0.028
+    PA3               -0.791      0.167     -4.747      0.000
+    GENERAL4           0.329      0.122      2.694      0.007
+    THREAT4            0.821      0.161      5.112      0.000
+    COPE4             -0.996      0.163     -6.126      0.000
+    FNR4               0.815      0.158      5.160      0.000
+    LOSS4              1.142      0.182      6.269      0.000
+    SLEEP4             0.184      0.138      1.331      0.183
+    SOMATIC4           0.090      0.135      0.664      0.507
+    PA4               -1.071      0.171     -6.256      0.000
+    GENERAL567         0.286      0.112      2.549      0.011
+    THREAT567         -0.044      0.114     -0.381      0.703
+    COPE567           -0.017      0.123     -0.139      0.889
+    FNR567            -0.053      0.124     -0.427      0.670
+    LOSS567            0.097      0.121      0.802      0.422
+    SLEEP567           0.073      0.112      0.651      0.515
+    SOMATIC567         0.190      0.121      1.572      0.116
+    PA567             -0.063      0.116     -0.545      0.586
+
+ Variances
+    GENERAL12          1.000      0.000    999.000    999.000
+    THREAT12           1.000      0.000    999.000    999.000
+    COPE12             1.000      0.000    999.000    999.000
+    FNR12              1.000      0.000    999.000    999.000
+    LOSS12             1.000      0.000    999.000    999.000
+    SLEEP12            1.000      0.000    999.000    999.000
+    SOMATIC12          1.000      0.000    999.000    999.000
+    PA12               1.000      0.000    999.000    999.000
+    GENERAL3           1.000      0.000    999.000    999.000
+    THREAT3            1.000      0.000    999.000    999.000
+    COPE3              1.000      0.000    999.000    999.000
+    FNR3               1.000      0.000    999.000    999.000
+    LOSS3              1.000      0.000    999.000    999.000
+    SLEEP3             1.000      0.000    999.000    999.000
+    SOMATIC3           1.000      0.000    999.000    999.000
+    PA3                1.000      0.000    999.000    999.000
+    GENERAL4           1.000      0.000    999.000    999.000
+    THREAT4            1.000      0.000    999.000    999.000
+    COPE4              1.000      0.000    999.000    999.000
+    FNR4               1.000      0.000    999.000    999.000
+    LOSS4              1.000      0.000    999.000    999.000
+    SLEEP4             1.000      0.000    999.000    999.000
+    SOMATIC4           1.000      0.000    999.000    999.000
+    PA4                1.000      0.000    999.000    999.000
+    GENERAL567         1.000      0.000    999.000    999.000
+    THREAT567          1.000      0.000    999.000    999.000
+    COPE567            1.000      0.000    999.000    999.000
+    FNR567             1.000      0.000    999.000    999.000
+    LOSS567            1.000      0.000    999.000    999.000
+    SLEEP567           1.000      0.000    999.000    999.000
+    SOMATIC567         1.000      0.000    999.000    999.000
+    PA567              1.000      0.000    999.000    999.000
+
+Latent Class 4
+
+ GENERAL1 WITH
+    GENERAL3           0.822      0.070     11.772      0.000
+
+ GENERAL3 WITH
+    GENERAL4           0.014      0.156      0.088      0.930
+
+ GENERAL4 WITH
+    GENERAL567         0.134      0.204      0.654      0.513
+
+ THREAT12 WITH
+    THREAT3            0.337      0.157      2.152      0.031
+
+ THREAT3  WITH
+    THREAT4            0.108      0.198      0.546      0.585
+
+ THREAT4  WITH
+    THREAT567          0.171      0.166      1.026      0.305
+
+ COPE12   WITH
+    COPE3              0.354      0.141      2.502      0.012
+
+ COPE3    WITH
+    COPE4             -0.078      0.168     -0.466      0.641
+
+ COPE4    WITH
+    COPE567            0.714      0.076      9.439      0.000
+
+ FNR12    WITH
+    FNR3               0.416      0.130      3.203      0.001
+
+ FNR3     WITH
+    FNR4              -0.390      0.178     -2.187      0.029
+
+ FNR4     WITH
+    FNR567             0.490      0.117      4.171      0.000
+
+ LOSS12   WITH
+    LOSS3             -0.020      0.177     -0.112      0.911
+
+ LOSS3    WITH
+    LOSS4              0.192      0.276      0.696      0.486
+
+ LOSS4    WITH
+    LOSS567            0.253      0.212      1.191      0.234
+
+ SLEEP12  WITH
+    SLEEP3             0.450      0.172      2.617      0.009
+
+ SLEEP3   WITH
+    SLEEP4            -0.350      0.225     -1.558      0.119
+
+ SLEEP4   WITH
+    SLEEP567           0.516      0.149      3.458      0.001
+
+ SOMATIC1 WITH
+    SOMATIC3           0.903      0.031     29.210      0.000
+
+ SOMATIC3 WITH
+    SOMATIC4           0.105      0.098      1.075      0.282
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.358      0.196     -1.827      0.068
+
+ PA12     WITH
+    PA3                0.189      0.245      0.772      0.440
+
+ PA3      WITH
+    PA4                0.082      0.177      0.461      0.645
+
+ PA4      WITH
+    PA567              0.579      0.115      5.052      0.000
+
+ Means
+    GENERAL12         -0.114      0.120     -0.949      0.343
+    THREAT12          -0.561      0.152     -3.699      0.000
+    COPE12             0.534      0.140      3.802      0.000
+    FNR12             -0.802      0.159     -5.045      0.000
+    LOSS12            -0.949      0.163     -5.841      0.000
+    SLEEP12            0.373      0.134      2.777      0.005
+    SOMATIC12          0.113      0.113      1.000      0.317
+    PA12               0.447      0.186      2.396      0.017
+    GENERAL3          -0.261      0.139     -1.879      0.060
+    THREAT3            0.249      0.149      1.667      0.096
+    COPE3              0.274      0.185      1.482      0.138
+    FNR3               0.003      0.161      0.016      0.987
+    LOSS3             -0.656      0.158     -4.140      0.000
+    SLEEP3             0.619      0.158      3.906      0.000
+    SOMATIC3           0.127      0.119      1.068      0.286
+    PA3               -0.149      0.152     -0.977      0.329
+    GENERAL4          -0.271      0.145     -1.867      0.062
+    THREAT4           -0.487      0.150     -3.244      0.001
+    COPE4              0.511      0.140      3.649      0.000
+    FNR4              -0.395      0.139     -2.838      0.005
+    LOSS4             -0.976      0.181     -5.402      0.000
+    SLEEP4             0.331      0.140      2.363      0.018
+    SOMATIC4          -0.339      0.143     -2.369      0.018
+    PA4                0.549      0.143      3.853      0.000
+    GENERAL567        -0.469      0.135     -3.478      0.001
+    THREAT567          0.150      0.123      1.213      0.225
+    COPE567            0.056      0.118      0.470      0.639
+    FNR567             0.094      0.140      0.676      0.499
+    LOSS567           -0.680      0.149     -4.571      0.000
+    SLEEP567           0.467      0.121      3.879      0.000
+    SOMATIC567        -0.220      0.134     -1.645      0.100
+    PA567             -0.035      0.155     -0.228      0.819
+
+ Variances
+    GENERAL12          1.000      0.000    999.000    999.000
+    THREAT12           1.000      0.000    999.000    999.000
+    COPE12             1.000      0.000    999.000    999.000
+    FNR12              1.000      0.000    999.000    999.000
+    LOSS12             1.000      0.000    999.000    999.000
+    SLEEP12            1.000      0.000    999.000    999.000
+    SOMATIC12          1.000      0.000    999.000    999.000
+    PA12               1.000      0.000    999.000    999.000
+    GENERAL3           1.000      0.000    999.000    999.000
+    THREAT3            1.000      0.000    999.000    999.000
+    COPE3              1.000      0.000    999.000    999.000
+    FNR3               1.000      0.000    999.000    999.000
+    LOSS3              1.000      0.000    999.000    999.000
+    SLEEP3             1.000      0.000    999.000    999.000
+    SOMATIC3           1.000      0.000    999.000    999.000
+    PA3                1.000      0.000    999.000    999.000
+    GENERAL4           1.000      0.000    999.000    999.000
+    THREAT4            1.000      0.000    999.000    999.000
+    COPE4              1.000      0.000    999.000    999.000
+    FNR4               1.000      0.000    999.000    999.000
+    LOSS4              1.000      0.000    999.000    999.000
+    SLEEP4             1.000      0.000    999.000    999.000
+    SOMATIC4           1.000      0.000    999.000    999.000
+    PA4                1.000      0.000    999.000    999.000
+    GENERAL567         1.000      0.000    999.000    999.000
+    THREAT567          1.000      0.000    999.000    999.000
+    COPE567            1.000      0.000    999.000    999.000
+    FNR567             1.000      0.000    999.000    999.000
+    LOSS567            1.000      0.000    999.000    999.000
+    SLEEP567           1.000      0.000    999.000    999.000
+    SOMATIC567         1.000      0.000    999.000    999.000
+    PA567              1.000      0.000    999.000    999.000
+
+Latent Class 5
+
+ GENERAL1 WITH
+    GENERAL3           0.268      0.160      1.673      0.094
+
+ GENERAL3 WITH
+    GENERAL4           0.249      0.193      1.291      0.197
+
+ GENERAL4 WITH
+    GENERAL567         0.767      0.079      9.665      0.000
+
+ THREAT12 WITH
+    THREAT3            0.237      0.159      1.492      0.136
+
+ THREAT3  WITH
+    THREAT4            0.565      0.134      4.213      0.000
+
+ THREAT4  WITH
+    THREAT567          0.037      0.213      0.172      0.864
+
+ COPE12   WITH
+    COPE3              0.292      0.156      1.877      0.061
+
+ COPE3    WITH
+    COPE4              0.346      0.218      1.583      0.113
+
+ COPE4    WITH
+    COPE567            0.247      0.216      1.146      0.252
+
+ FNR12    WITH
+    FNR3               0.275      0.171      1.609      0.108
+
+ FNR3     WITH
+    FNR4               0.426      0.276      1.547      0.122
+
+ FNR4     WITH
+    FNR567             0.310      0.248      1.248      0.212
+
+ LOSS12   WITH
+    LOSS3              0.599      0.113      5.292      0.000
+
+ LOSS3    WITH
+    LOSS4              0.451      0.114      3.971      0.000
+
+ LOSS4    WITH
+    LOSS567            0.479      0.120      3.984      0.000
+
+ SLEEP12  WITH
+    SLEEP3             0.475      0.153      3.115      0.002
+
+ SLEEP3   WITH
+    SLEEP4             0.113      0.216      0.523      0.601
+
+ SLEEP4   WITH
+    SLEEP567           0.402      0.172      2.339      0.019
+
+ SOMATIC1 WITH
+    SOMATIC3           0.128      0.180      0.711      0.477
+
+ SOMATIC3 WITH
+    SOMATIC4           0.035      0.198      0.177      0.860
+
+ SOMATIC4 WITH
+    SOMATIC567        -0.157      0.193     -0.811      0.417
+
+ PA12     WITH
+    PA3                0.169      0.155      1.090      0.276
+
+ PA3      WITH
+    PA4                0.371      0.168      2.204      0.028
+
+ PA4      WITH
+    PA567              0.154      0.188      0.817      0.414
+
+ Means
+    GENERAL12          0.892      0.176      5.054      0.000
+    THREAT12           0.165      0.148      1.121      0.262
+    COPE12            -0.287      0.149     -1.925      0.054
+    FNR12              0.193      0.149      1.294      0.196
+    LOSS12             0.240      0.141      1.698      0.090
+    SLEEP12            0.100      0.144      0.694      0.488
+    SOMATIC12         -0.151      0.146     -1.034      0.301
+    PA12              -0.134      0.151     -0.886      0.376
+    GENERAL3           1.077      0.231      4.670      0.000
+    THREAT3           -0.218      0.178     -1.225      0.221
+    COPE3             -0.051      0.171     -0.298      0.766
+    FNR3              -0.006      0.174     -0.034      0.973
+    LOSS3             -0.014      0.151     -0.096      0.923
+    SLEEP3             0.184      0.169      1.091      0.275
+    SOMATIC3          -0.192      0.168     -1.144      0.252
+    PA3                0.243      0.166      1.462      0.144
+    GENERAL4           0.358      0.145      2.467      0.014
+    THREAT4            0.659      0.175      3.764      0.000
+    COPE4             -0.460      0.169     -2.717      0.007
+    FNR4               0.399      0.164      2.436      0.015
+    LOSS4              0.846      0.177      4.772      0.000
+    SLEEP4             0.289      0.164      1.762      0.078
+    SOMATIC4           0.310      0.165      1.880      0.060
+    PA4               -0.837      0.184     -4.557      0.000
+    GENERAL567         0.769      0.155      4.965      0.000
+    THREAT567          0.123      0.140      0.877      0.380
+    COPE567           -0.122      0.147     -0.827      0.409
+    FNR567             0.127      0.152      0.835      0.404
+    LOSS567            0.253      0.143      1.772      0.076
+    SLEEP567           0.227      0.143      1.591      0.112
+    SOMATIC567        -0.101      0.164     -0.614      0.539
+    PA567              0.092      0.146      0.629      0.529
+
+ Variances
+    GENERAL12          1.000      0.000    999.000    999.000
+    THREAT12           1.000      0.000    999.000    999.000
+    COPE12             1.000      0.000    999.000    999.000
+    FNR12              1.000      0.000    999.000    999.000
+    LOSS12             1.000      0.000    999.000    999.000
+    SLEEP12            1.000      0.000    999.000    999.000
+    SOMATIC12          1.000      0.000    999.000    999.000
+    PA12               1.000      0.000    999.000    999.000
+    GENERAL3           1.000      0.000    999.000    999.000
+    THREAT3            1.000      0.000    999.000    999.000
+    COPE3              1.000      0.000    999.000    999.000
+    FNR3               1.000      0.000    999.000    999.000
+    LOSS3              1.000      0.000    999.000    999.000
+    SLEEP3             1.000      0.000    999.000    999.000
+    SOMATIC3           1.000      0.000    999.000    999.000
+    PA3                1.000      0.000    999.000    999.000
+    GENERAL4           1.000      0.000    999.000    999.000
+    THREAT4            1.000      0.000    999.000    999.000
+    COPE4              1.000      0.000    999.000    999.000
+    FNR4               1.000      0.000    999.000    999.000
+    LOSS4              1.000      0.000    999.000    999.000
+    SLEEP4             1.000      0.000    999.000    999.000
+    SOMATIC4           1.000      0.000    999.000    999.000
+    PA4                1.000      0.000    999.000    999.000
+    GENERAL567         1.000      0.000    999.000    999.000
+    THREAT567          1.000      0.000    999.000    999.000
+    COPE567            1.000      0.000    999.000    999.000
+    FNR567             1.000      0.000    999.000    999.000
+    LOSS567            1.000      0.000    999.000    999.000
+    SLEEP567           1.000      0.000    999.000    999.000
+    SOMATIC567         1.000      0.000    999.000    999.000
+    PA567              1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+Class 1
+
+Class 2
+
+Class 3
+
+Class 4
+
+Class 5
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.621E-09
+       (ratio of smallest to largest eigenvalue)
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample means
+  Estimated means, medians, modes, and percentiles
+  Sample and estimated means
+  Observed individual values
+  Estimated means and observed individual values
+  Estimated overall and class-specific distributions
+
+     Beginning Time:  06:37:04
+        Ending Time:  19:19:57
+       Elapsed Time:  12:42:53
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

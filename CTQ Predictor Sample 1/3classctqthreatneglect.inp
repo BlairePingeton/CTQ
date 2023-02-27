@@ -1,0 +1,87 @@
+
+
+    TITLE:
+      3-component paper 2 normal mixture model
+      !LPA with no restrictions to variance
+      !threat and neglect subtotals added
+      !vermunt 3 step
+      !corrected factor values
+
+    DATA:
+      FILE IS C:\Users\bpinget\Desktop\Dissertation2\factormeansthrneg.csv;
+
+    VARIABLE:
+      NAMES ARE ID General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567
+                   threat neglect;
+      USEVARIABLES General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+      AUXILIARY ARE (R3STEP) threat neglect;
+      IDVARIABLE IS ID;
+      CLASSES = class (3);
+      MISSING IS General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567
+                    threat neglect(-99);
+
+    ANALYSIS:
+      TYPE = MIXTURE;
+      STARTS = 10000 1000;
+      ESTIMATOR = ML;
+      MODEL = NOCOV;
+
+    MODEL:
+    %class#1%
+                   [General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567];
+
+                   General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+
+    %class#2%
+                   [General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567];
+
+                   General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+
+    %class#3%
+                   [General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567];
+
+                   General12 Threat12 Cope12 FNR12 Loss12 Sleep12 Somatic12 PA12
+                   General3 Threat3 Cope3 FNR3 Loss3 Sleep3 Somatic3 PA3
+                   General4 Threat4 Cope4 FNR4 Loss4 Sleep4 Somatic4 PA4
+                   General567 Threat567 Cope567 FNR567 Loss567 Sleep567 Somatic567 PA567;
+
+    OUTPUT: STDYX;
+
+    SAVEDATA: FILE IS C:\Users\bpinget\Desktop\3ctq;
+           SAVE = cprob;
+
+    PLOT:
+      TYPE=PLOT3;
+      SERIES=
+      General12 General3 General4 General567
+      Threat12 Threat3 Threat4 Threat567
+      Cope12 Cope3 Cope4 Cope567
+      FNR12 FNR3 FNR4 FNR567
+      Loss12 Loss3 Loss4 Loss567
+      Sleep12 Sleep3 Sleep4 Sleep567
+      Somatic12 Somatic3 Somatic4 Somatic567
+      PA12 PA3 PA4 PA567(*);
